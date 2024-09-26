@@ -2,7 +2,7 @@ name: get stock price
 
 on:
   schedule:
-    - cron: "*/5 1-6 * * 1-5"  # 每週一至週五，從凌晨 1 點到 6 點，每 5 分鐘執行一次
+    - cron: "*/1 1-6 * * 1-5"  # 每週一至週五，從凌晨 1 點到 6 點，每 5 分鐘執行一次
 
 jobs:
   build:
