@@ -1,0 +1,29 @@
+name: get stock price
+
+on:
+  schedule:
+    - cron: "*/5 1-6 * * 1-5"  # 每週一至週五，從凌晨 1 點到 6 點，每 5 分鐘執行一次
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用最新版本的 Ubuntu 作為執行環境
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9  # 設置 Python 版本為 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip  # 升級 pip
+          pip install requests  # 安裝 requests 庫
+          pip install BeautifulSoup4  # 安裝 BeautifulSoup4 庫
+
+      - name: Check out code
+        uses: actions/checkout@v2  # 檢出代碼庫的內容
+
+      - name: Run Python script
+        run: python test1.py  # 執行 Python 腳本
+
+
